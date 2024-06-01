@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "title": "Frontend Engineer",
+    "type": "Full-Time",
+    "description": "We are looking for a skilled Frontend Engineer to join our dynamic team in Bengaluru. The candidate should be proficient in HTML, CSS, JavaScript, and have experience with React or Vue.js.",
+    "location": "Bengaluru, India",
+    "salary": "₹10L - ₹15L",
+    "company": {
+      "name": "Tech Innovators",
+      "description": "Tech Innovators is at the forefront of technological advancements, delivering cutting-edge solutions to our clients worldwide. We value creativity, dedication, and a passion for technology.",
+      "contactEmail": "hr@techinnovators.in",
+      "contactPhone": "555-123-4567"
+    }
+  },
+  {
+    "id": "2",
+    "title": "Junior React Developer",
+    "type": "Full-Time",
+    "description": "Join our team as a Junior React Developer in Mumbai. We are looking for someone with a strong foundation in HTML, CSS, and JavaScript, eager to grow and learn in a fast-paced environment.",
+    "location": "Mumbai, India",
+    "salary": "₹6L - ₹8L",
+    "company": {
+      "name": "WebGenie Solutions",
+      "description": "WebGenie Solutions specializes in creating state-of-the-art web applications. Our mission is to transform our clients' ideas into reality through innovative and efficient solutions.",
+      "contactEmail": "careers@webgenie.com",
+      "contactPhone": "555-234-5678"
+    }
+  },
+  {
+    "id": "3",
+    "title": "Angular Developer",
+    "type": "Full-Time",
+    "description": "We are seeking an experienced Angular Developer to join our team in Hyderabad. The ideal candidate will have a solid background in front-end technologies and a passion for building responsive web applications.",
+    "location": "Hyderabad, India",
+    "salary": "₹12L - ₹18L",
+    "company": {
+      "name": "NextGen IT",
+      "description": "NextGen IT is a pioneering IT firm known for its innovative solutions and exceptional client service. We encourage a culture of learning and growth.",
+      "contactEmail": "jobs@nextgenit.com",
+      "contactPhone": "555-345-6789"
+    }
+  },
+  {
+    "id": "4",
+    "title": "Vue.js Developer",
+    "type": "Full-Time",
+    "description": "Our Pune office is looking for a talented Vue.js Developer. The candidate should be well-versed in JavaScript, HTML, and CSS, with significant experience in Vue.js framework.",
+    "location": "Pune, India",
+    "salary": "₹9L - ₹12L",
+    "company": {
+      "name": "Innovatech",
+      "description": "Innovatech is a leader in software development and innovation, committed to delivering top-quality products to our clients globally.",
+      "contactEmail": "apply@innovatech.in",
+      "contactPhone": "555-456-7890"
+    }
+  },
+  {
+    "id": "5",
+    "title": "Full Stack Developer",
+    "type": "Full-Time",
+    "description": "We are hiring a Full Stack Developer with expertise in both front-end and back-end technologies for our office in Chennai. Experience with React.js and Node.js is required.",
+    "location": "Chennai, India",
+    "salary": "₹11L - ₹16L",
+    "company": {
+      "name": "DevSolutions",
+      "description": "DevSolutions is dedicated to developing innovative software solutions that meet the evolving needs of our clients. We foster a collaborative and forward-thinking work environment.",
+      "contactEmail": "hr@devsolutions.com",
+      "contactPhone": "555-567-8901"
+    }
+  },
+  {
+    "id": "6",
+    "title": "UI/UX Designer",
+    "type": "Full-Time",
+    "description": "Join our team as a UI/UX Designer in Delhi. We are looking for a creative individual with experience in designing user interfaces and enhancing user experience.",
+    "location": "Delhi, India",
+    "salary": "₹8L - ₹10L",
+    "company": {
+      "name": "Creative Minds",
+      "description": "Creative Minds is a design-focused company that creates visually stunning and user-friendly interfaces for a variety of digital platforms.",
+      "contactEmail": "jobs@creativeminds.com",
+      "contactPhone": "555-678-9012"
+    }
+  }
+]
