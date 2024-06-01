@@ -10,11 +10,13 @@ const HomeCards = () => {
             title="For Developers"
             subTitle="Browse our React jobs and start your career today"
             buttonText="Browse Jobs"
+            link="/jobs"
           />
           <Card
             title="For Employers"
             subTitle="List your job to find the perfect developer for the role"
             buttonText="Add Jobs"
+            link="/add-jobs"
           />
         </div>
       </div>

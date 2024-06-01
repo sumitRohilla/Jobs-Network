@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/images/logo.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,24 +11,24 @@ const Navbar = () => {
           <h1 className="my-auto">React Jobs</h1>
         </div>
         <div className="link flex space-x-5 mr-5 sm:mr-10">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="px-2 py-3 rounded-lg bg-mainDarkColor hover:bg-gray-700"
           >
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/jobs"
             className="px-2 py-3 rounded-lg bg-mainLightColor hover:bg-gray-700"
           >
             Jobs
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/add-jobs"
             className="px-2 py-3 rounded-lg bg-mainLightColor hover:bg-gray-700"
           >
             Add Jobs
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
