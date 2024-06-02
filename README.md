@@ -1,6 +1,6 @@
 # Learning - React Job Network
 
-<a href="https://sumitrohilla.github.io/React-Job-Network/"><img src="https://img.shields.io/badge/-Website%20Link-4285F4?style=for-the-badge&logo=React&logoColor=#61dbfb"/></a>
+<a href="https://sumitrohilla.github.io/React-Job-Network/"><img src="https://img.shields.io/badge/-Website%20Link-4285F4?style=for-the-badge&logo=React&logoColor=white"/></a>
 
 ## React Project :
 
