@@ -2,115 +2,122 @@
 
 <a href="https://sumitrohilla.github.io/React-Job-Network/"><img src="https://img.shields.io/badge/-Website%20Link-23272f?style=for-the-badge&logo=React&logoColor=white"/></a>
 
-## React Project :
+## Overview
 
-• This is a learning project to improve understanding of React.js, React Routers.\
-• We have used Vite with React + JavaScript for creating this project.\
-• In this website we have used React for Front-end, Tailwindcss for CSS.\
-• This website is also using Json Server for fetching data as Back-end.\
-• We have used React Routers for Creating Routes to Multiple pages.\
-• This website is also using Json Server for fetching data as Back-end.\
-• UI for this is inspired by Reacts official Website and it is also a responsive website.
+This project is a learning exercise to enhance understanding of React.js and React Router. It uses Vite to set up a React + JavaScript project, with Tailwind CSS for styling and JSON Server for backend data fetching. The UI is inspired by the official React website and is fully responsive.
 
-## Create Project using Vite :
+## Project Features
 
-• Install React via npm using Vite.
+- **React for Front-end**: Utilizes React.js for building the front-end.
+- **Tailwind CSS**: Employed for efficient and modern styling.
+- **JSON Server**: Used for simulating a backend by fetching data from a JSON file.
+- **React Router**: Implemented for creating routes to multiple pages.
+- **Responsive Design**: The UI is responsive and mobile-friendly, inspired by the official React website.
 
-```
+## Project Setup
+
+### Create Project Using Vite
+
+To create the project using Vite:
+
+```bash
 npm create vite@latest my-project
 cd my-project
 npm install
 ```
 
-## Install React Router DOM :
+## Install React Router DOM
 
-• Install React Router DOM via npm with below command.
+Install React Router DOM via npm with the following command:
 
-```
+```bash
 npm install react-router-dom
 ```
 
-## Install React icons :
+## Install React Icons
 
-• Install React icons via npm with below command.
+Install React Icons via npm with the following command:
 
-```
+```bash
 npm install react-icons
 ```
 
-## Install Json Server :
+## Install JSON Server
 
-• Install Json Server as Dependency via npm with below command.
+Install JSON Server as a development dependency via npm with the following command:
 
-```
+```bash
 npm i -D json-server
 ```
 
-• Add below command under scripts in package.json file for running the server.
+Add the following command under `scripts` in your `package.json` file to run the server:
 
+```jsx
+"scripts": {
+  "server": "json-server *file-location* --port *port*"
+}
 ```
-"server": "json-server --watch *file-location* --port *port*
+
+Run JSON Server with the following command:
+
+```bash
+npm run server
 ```
 
-## Install Tailwind CSS :
+## Install Tailwind CSS
 
-• Install tailwindcss via npm, and create your tailwind.config.js file.
+Install Tailwind CSS via npm and create your `tailwind.config.js` file:
 
-```
+```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-## Configure your template paths :
+## Configure Your Template Paths
 
-• Add the paths to all of your template files in your tailwind.config.js file.
+Add the paths to all of your template files in your `tailwind.config.js` file:
 
-```
+```jsx
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
-## Add the Tailwind directives to your CSS :
+## Add the Tailwind Directives to Your CSS
 
-• Add the @tailwind directives for each of Tailwind’s layers to your main CSS file.
+Add the `@tailwind` directives for each of Tailwind’s layers to your main CSS file:
 
-```
+```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-## Start the Server :
+## Start the Development Server
 
-• Use below COMMOND to start build process
+Use the following command to start the build process:
 
-```
+```bash
 npm run dev
 ```
 
-## FRONT-END :
+## Front-End Development
 
-FRONT-END development is the development of those elements of a website that the customer sees and interacts with directly.
+Front-end development involves creating the elements of a website that users interact with directly.
 
-## HTML :
+### HTML
 
-• HyperText Markup Language is the standard markup language used to create web pages.\
-• It is written in the form of HTML elments consisting of tag enclosed in angles brackets.
+- **HyperText Markup Language (HTML)**: The standard markup language used to create web pages. It consists of HTML elements defined by tags enclosed in angle brackets.
 
-## CSS :
+### CSS
 
-• Cascading Style Sheets is a style sheet language used for describing the look and formatting of a document written in a markup language.
+- **Cascading Style Sheets (CSS)**: A style sheet language used for describing the look and formatting of a document written in a markup language.
 
-## JavaScript :
+### JavaScript
 
-• JavaScript is a client scripting language which is used for creating web pages.\
-• It also allows to make webpage to be dynamic and add special effects.
+- **JavaScript**: A client-side scripting language used for creating dynamic and interactive web pages. It enhances the user experience by adding special effects and functionalities.
