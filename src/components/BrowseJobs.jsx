@@ -2,8 +2,8 @@ import React from "react";
 import jobs from "../assets/json/jobs.json";
 import JobCard from "./JobCard";
 
-const BrowseJobs = () => {
-  const recentJobs = jobs.slice(0, 3);
+const BrowseJobs = ({ cards = jobs.length }) => {
+  const recentJobs = jobs.slice(0, cards);
 
   return (
     <section className="bg-mainLightColor px-4 py-10">

@@ -1,34 +1,39 @@
 import React from "react";
 import logo from "../assets/images/logo.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
 
 const Navbar = () => {
+  const activeClass = ({ isActive }) =>
+    isActive
+      ? "bg-mainDarkColor px-2 py-3 rounded-lg hover:bg-gray-700"
+      : "px-2 py-3 rounded-lg hover:bg-gray-700";
+
+  const menuToggle = () => {
+    const menuLinks = document.querySelector(".menu-links");
+    menuLinks.classList.toggle("hidden");
+  };
+
   return (
     <nav className="bg-mainLightColor">
       <div className="flex max-w-7xl h-20 items-center justify-between mx-auto text-textColor">
         <div className="flex space-x-5 ml-5 sm:ml-10">
           <img className="h-10 w-auto" src={logo} alt="logo" />
-          <h1 className="my-auto">React Jobs</h1>
+          <h1 className="my-auto">React Job Network</h1>
         </div>
-        <div className="link flex space-x-5 mr-5 sm:mr-10">
-          <Link
-            to="/"
-            className="px-2 py-3 rounded-lg bg-mainDarkColor hover:bg-gray-700"
-          >
+        <div className="mr-8 md:hidden">
+          <FaBars onClick={menuToggle} className="w-6 h-6 cursor-pointer" />
+        </div>
+        <div className="menu-links flex flex-col space-x-5 mr-5 sm:mr-10 md:flex md:flex-row">
+          <NavLink to="/" className={activeClass}>
             Home
-          </Link>
-          <Link
-            to="/jobs"
-            className="px-2 py-3 rounded-lg bg-mainLightColor hover:bg-gray-700"
-          >
+          </NavLink>
+          <NavLink to="/jobs" className={activeClass}>
             Jobs
-          </Link>
-          <Link
-            to="/add-jobs"
-            className="px-2 py-3 rounded-lg bg-mainLightColor hover:bg-gray-700"
-          >
+          </NavLink>
+          <NavLink to="/add-jobs" className={activeClass}>
             Add Jobs
-          </Link>
+          </NavLink>
         </div>
       </div>
     </nav>

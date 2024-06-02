@@ -10,7 +10,7 @@ const HomePage = () => {
     <>
       <Hero />
       <HomeCards />
-      <BrowseJobs />
+      <BrowseJobs cards="3" />
       <ViewAllJobs />
     </>
   );
