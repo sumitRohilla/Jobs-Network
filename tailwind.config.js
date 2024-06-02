@@ -7,7 +7,7 @@ export default {
         mainLightColor: "rgb(35, 39, 47)",
         mainDarkColor: "rgb(22, 24, 29)",
         buttonColor: "rgb(88, 196, 220)",
-        textColor: "rgb(246 247 249)",
+        textColor: "rgb(246, 247, 249)",
       },
       fontFamily: {
         sans: ["Source Code Pro", "monospace"],
