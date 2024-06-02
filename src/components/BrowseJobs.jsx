@@ -27,9 +27,6 @@ const BrowseJobs = ({ isHome = true }) => {
     return () => controller.abort();
   }, []);
 
-  const al = document.querySelector(".menu-links");
-  console.log(al);
-
   return (
     <section className="bg-mainLightColor px-4 py-10">
       <div className="container-xl lg:container m-auto">
