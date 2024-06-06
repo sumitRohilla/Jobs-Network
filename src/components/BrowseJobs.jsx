@@ -38,7 +38,7 @@ const BrowseJobs = ({ isHome = true }) => {
   }, []);
 
   return (
-    <section className="bg-mainLightColor px-4 py-10">
+    <section className="bg-mainLightColor px-4 py-10 grow">
       <div className="container-xl lg:container m-auto">
         <h2 className="text-3xl font-bold text-textColor mb-8 text-center">
           {isHome ? "Recent Jobs" : "Browse Jobs"}

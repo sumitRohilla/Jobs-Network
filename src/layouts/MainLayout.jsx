@@ -5,11 +5,11 @@ import ScrollTop from "../components/ScrollTop";
 
 const MainLayout = () => {
   return (
-    <>
+    <div id="main-container">
       <Navbar />
       <Outlet />
       <ScrollTop />
-    </>
+    </div>
   );
 };
 

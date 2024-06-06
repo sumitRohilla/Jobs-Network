@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import PopUp from "../components/PopUp";
 
-const AddJobsPage = () => {
+const AddJobsPage = ({ addJobSubmit }) => {
   // state with add job data
   const [formData, setFormData] = useState({
     type: "Full-Time",
@@ -32,14 +33,23 @@ const AddJobsPage = () => {
   };
 
   // on submitting form with details
+  const [loading, setLoading] = useState(false);
+  const [showPopUp, setShowPopUp] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    console.log(formData.title);
+    addJobSubmit(formData, setLoading, setShowPopUp);
   };
 
   return (
     <>
+      <PopUp
+        loading={loading}
+        showPopUp={showPopUp}
+        setShowPopUp={setShowPopUp}
+      />
       <section className="bg-mainLightColor">
         <div className="flex justify-between container m-auto py-6 px-6">
           <NavLink
@@ -51,13 +61,12 @@ const AddJobsPage = () => {
           </NavLink>
           <button
             onClick={() => document.getElementById("jobForm").requestSubmit()}
-            className="submit-button buttonStyle px-3 py-2 rounded-lg"
+            className="buttonStyle px-3 py-2 rounded-lg"
           >
             Publish Job
           </button>
         </div>
       </section>
-
       <section className="bg-mainLightColor">
         <div className="container mx-auto py-10 px-6">
           <form

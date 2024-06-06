@@ -11,3 +11,7 @@
   background-color: rgb(55 65 81);
   color: rgb(246, 247, 249);
 }
+
+#root {
+  overflow-y: auto;
+}
