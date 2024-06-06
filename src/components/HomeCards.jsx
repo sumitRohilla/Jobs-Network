@@ -16,7 +16,7 @@ const HomeCards = () => {
             title="For Employers"
             subTitle="List your job to find the perfect developer for the role"
             buttonText="Add Jobs"
-            link="/add-jobs"
+            link="/add-job"
           />
         </div>
       </div>

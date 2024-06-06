@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.buttonStyle {
+  background-color: rgb(88, 196, 220);
+  color: rgb(22, 24, 29);
+}
+
+.buttonStyle:hover {
+  background-color: rgb(55 65 81);
+  color: rgb(246, 247, 249);
+}

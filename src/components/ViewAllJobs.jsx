@@ -7,7 +7,7 @@ const ViewAllJobs = () => {
       <div className="m-auto max-w-lg py-10 px-6">
         <Link
           to="/jobs"
-          className="block bg-buttonColor text-mainDarkColor text-center py-4 px-6 rounded-xl hover:bg-gray-700 hover:text-textColor"
+          className="block text-center py-4 px-6 rounded-xl buttonStyle"
         >
           View All Jobs
         </Link>

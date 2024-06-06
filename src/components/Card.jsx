@@ -8,7 +8,7 @@ const Card = ({ title, subTitle, buttonText, link }) => {
       <p className="mt-2 mb-4">{subTitle}</p>
       <Link
         to={link}
-        className="inline-block bg-buttonColor text-mainDarkColor rounded-lg px-4 py-2 hover:bg-gray-700 hover:text-textColor"
+        className="inline-block buttonStyle rounded-lg px-4 py-2 "
       >
         {buttonText}
       </Link>

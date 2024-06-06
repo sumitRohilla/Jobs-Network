@@ -37,8 +37,8 @@ const JobCard = ({ job }) => {
             {job.location}
           </div>
           <Link
-            to={`/job/${job.id}`}
-            className="h-[36px] bg-buttonColor text-mainDarkColor px-4 py-2 rounded-lg text-center text-sm hover:bg-gray-700 hover:text-textColor"
+            to={`/jobs/${job.id}`}
+            className="h-[36px] buttonStyle px-4 py-2 rounded-lg text-center text-sm"
           >
             Read More
           </Link>

@@ -1,28 +1,38 @@
 import { useState, useEffect } from "react";
 import JobCard from "./JobCard";
-import Spinners from "../pages/Spinners";
+import Spinner from "../components/Spinners";
 
 const BrowseJobs = ({ isHome = true }) => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const controller = new AbortController();
+  const apiUrl = isHome ? "/api/jobs?_limit=3" : "/api/jobs";
 
   useEffect(() => {
-    const fetchJobs = async () => {
-      const apiUrl = isHome ? "/api/jobs?_limit=3" : "/api/jobs";
+    const controller = new AbortController();
+    const signal = controller.signal;
 
+    const fetchData = async () => {
       try {
-        const response = await fetch(apiUrl, controller.signal);
-        const jsonData = await response.json();
-        setJobs(jsonData);
+        const response = await fetch(apiUrl, { signal });
+
+        if (!response.ok) {
+          throw new Error(
+            "Network Error while fetching data!! Status : " + response.status
+          );
+        }
+        const data = await response.json();
+        setJobs(data);
       } catch (e) {
-        console.log("Error while Fetching Data!!", e);
+        if (e.name == "AbortError") {
+          console.log("Aborting Request!!");
+        } else {
+          console.error(e);
+        }
       } finally {
         setLoading(false);
       }
     };
-    fetchJobs();
+    fetchData();
 
     return () => controller.abort();
   }, []);
@@ -34,7 +44,7 @@ const BrowseJobs = ({ isHome = true }) => {
           {isHome ? "Recent Jobs" : "Browse Jobs"}
         </h2>
         {loading ? (
-          <Spinners loading={loading} />
+          <Spinner loading={loading} />
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {jobs.map((job) => (
