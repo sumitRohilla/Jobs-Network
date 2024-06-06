@@ -75,7 +75,7 @@ const JobPage = () => {
 
             <aside className="md:col-start-1 md:col-span-2 xl:col-start-2">
               <div className="flex flex-col md:flex-row xl:flex-col bg-mainDarkColor text-textColor p-6 rounded-lg shadow-md">
-                <div className="pr-8 min-w-72">
+                <div className="md:pr-8 xl:pr-0 min-w-72">
                   <h3 className="text-xl font-bold mb-6">Company Info</h3>
 
                   <h2 className="text-buttonColor text-2xl">
