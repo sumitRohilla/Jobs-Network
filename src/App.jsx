@@ -13,7 +13,7 @@ import AddJobs from "./pages/AddJobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage from "./pages/JobPage";
 import EditJobPage from "./pages/EditJobPage";
-import jobLoader from "./components/JobLoader";
+import jobLoader from "./loaders/JobLoader";
 
 const App = () => {
   const controller = new AbortController();
