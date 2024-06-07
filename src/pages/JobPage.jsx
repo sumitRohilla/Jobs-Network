@@ -1,21 +1,31 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
-const JobPage = () => {
+const JobPage = ({ deleteJob }) => {
   const job = useLoaderData();
+  const navigate = useNavigate();
+
+  const onDeleteClick = (jobId) => {
+    const confirm = window.confirm("Are you sure you want to delete this Job?");
+
+    if (!confirm) return;
+    deleteJob(jobId);
+
+    navigate("/jobs");
+  };
 
   return (
     <>
       <section className="bg-mainLightColor">
         <div className="container m-auto py-6 px-6">
-          <NavLink
+          <Link
             to="/jobs"
             className="text-textColor hover:opacity-60 flex items-center"
           >
             <FaArrowLeft className="mr-2" />
             Back to Job Listings
-          </NavLink>
+          </Link>
         </div>
       </section>
 
@@ -102,13 +112,16 @@ const JobPage = () => {
 
               <div className="bg-mainDarkColor text-textColor p-6 rounded-lg shadow-md mt-6">
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
-                <a
-                  href="/add-job.html"
+                <Link
+                  to={`/edit-job/${job.id}`}
                   className="buttonStyle text-center font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Edit Job
-                </a>
-                <button className="buttonStyle font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block">
+                </Link>
+                <button
+                  onClick={() => onDeleteClick(job.id)}
+                  className="buttonStyle font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
+                >
                   Delete Job
                 </button>
               </div>
@@ -120,30 +133,4 @@ const JobPage = () => {
   );
 };
 
-const jobLoader = async ({ params, request }) => {
-  const apiUrl = `/api/jobs/${params.id}`;
-  const controller = new AbortController();
-
-  request.signal.addEventListener("abort", () => controller.abort());
-
-  try {
-    const response = await fetch(apiUrl, { signal: controller.signal });
-
-    if (!response.ok) {
-      throw new Error(
-        "Network Error while fetching data!! Status : " + response.status
-      );
-    }
-    const data = await response.json();
-
-    return data;
-  } catch (e) {
-    if (e.name == "AbortError") {
-      console.log("Aborting Request!!");
-    } else {
-      console.error(e);
-    }
-  }
-};
-
-export { JobPage as default, jobLoader };
+export default JobPage;

@@ -18,8 +18,6 @@ const PopUp = ({ loading, showPopUp, setShowPopUp }) => {
     if (allowNavigate) return navigate("/jobs");
   }, [showPopUp]);
 
-  console.log(showPopUp);
-
   return (
     <section className="absolute top-0 h-screen w-full overflow-y-auto post-popup hidden">
       <div className="h-full absolute top-0 w-full backdrop-blur-sm">
