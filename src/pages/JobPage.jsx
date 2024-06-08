@@ -1,4 +1,5 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -6,11 +7,14 @@ const JobPage = ({ deleteJob }) => {
   const job = useLoaderData();
   const navigate = useNavigate();
 
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm("Are you sure you want to delete this Job?");
 
     if (!confirm) return;
-    deleteJob(jobId);
+    deleteJob(jobId, setLoading, setShowPopUp);
 
     navigate("/jobs");
   };
@@ -116,7 +120,7 @@ const JobPage = ({ deleteJob }) => {
                   to={`/edit-job/${job.id}`}
                   className="buttonStyle text-center font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
-                  Edit Job
+                  Update Job
                 </Link>
                 <button
                   onClick={() => onDeleteClick(job.id)}

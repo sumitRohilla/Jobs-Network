@@ -1,5 +1,3 @@
-import React from "react";
-
 const jobLoader = async ({ params, request }) => {
   const apiUrl = `/api/jobs/${params.id}`;
   const controller = new AbortController();
@@ -15,7 +13,6 @@ const jobLoader = async ({ params, request }) => {
       );
     }
     const data = await response.json();
-    console.log(data);
 
     return data;
   } catch (e) {

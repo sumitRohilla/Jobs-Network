@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  --toastify-color-dark: rgb(55 65 81);
+  --toastify-icon-color-success: rgb(88, 196, 220);
+  --toastify-color-progress-success: rgb(88, 196, 220);
+}
+
+.Toastify__toast-container {
+  margin-top: 5rem;
+}
+
 .buttonStyle {
   background-color: rgb(88, 196, 220);
   color: rgb(22, 24, 29);
@@ -15,7 +25,7 @@
 @media screen and (max-width: 768px) {
   .menu-links {
     height: 50%;
-    width: 75%;
+    width: 60%;
     margin-right: 2rem;
     padding: 1rem;
     position: fixed;

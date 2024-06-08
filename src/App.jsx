@@ -9,28 +9,35 @@ import {
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import JobsPage from "./pages/JobsPage";
-import AddJobs from "./pages/AddJobsPage";
+import AddJobsPage from "./pages/AddJobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage from "./pages/JobPage";
 import EditJobPage from "./pages/EditJobPage";
 import jobLoader from "./loaders/JobLoader";
+import { toast } from "react-toastify";
 
 const App = () => {
   const controller = new AbortController();
   const signal = controller.signal;
 
   // Add Job
-  const addJob = async (formData, setLoading, setShowPopUp) => {
+  const addJob = async (formData, setLoading) => {
     try {
-      setShowPopUp(true);
-      const response = await fetch(`/api/jobs`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-        signal: signal,
-      });
+      const response = await toast.promise(
+        fetch("/api/jobs", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+          signal: signal,
+        }),
+        {
+          pending: "Publishing Job...",
+          success: "Job Published Successfully ! 👌",
+          error: "Error occured ! 🤯",
+        }
+      );
 
       if (!response.ok) {
         throw new Error(
@@ -50,12 +57,20 @@ const App = () => {
   };
 
   // Delete Job
-  const deleteJob = async (id) => {
+  const deleteJob = async (id, setLoading, setShowPopUp) => {
     try {
-      const response = await fetch(`/api/jobs/${id}`, {
-        method: "DELETE",
-        signal: signal,
-      });
+      setShowPopUp(true);
+      const response = await toast.promise(
+        fetch(`/api/jobs/${id}`, {
+          method: "DELETE",
+          signal: signal,
+        }),
+        {
+          pending: "Deleting Job...",
+          success: "Job Deleted Successfully ! 👌",
+          error: "Error occured ! 🤯",
+        }
+      );
       if (!response.ok) {
         throw new Error(
           "Network Error while fetching data!! Status : " + response.status
@@ -68,21 +83,30 @@ const App = () => {
       } else {
         console.error(e);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Add Job
+  // Update Job
   const updateJob = async (formData, setLoading, setShowPopUp) => {
     try {
       setShowPopUp(true);
-      const response = await fetch(`/api/jobs/${formData.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-        signal: signal,
-      });
+      const response = await toast.promise(
+        fetch(`/api/jobs/${formData.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+          signal: signal,
+        }),
+        {
+          pending: "Updating Job...",
+          success: "Job Updated Successfully ! 👌",
+          error: "Error occured ! 🤯",
+        }
+      );
 
       if (!response.ok) {
         throw new Error(
@@ -116,7 +140,10 @@ const App = () => {
           element={<EditJobPage updateJobSubmit={updateJob} />}
           loader={jobLoader}
         />
-        <Route path="/add-job" element={<AddJobs addJobSubmit={addJob} />} />
+        <Route
+          path="/add-job"
+          element={<AddJobsPage addJobSubmit={addJob} />}
+        />
       </Route>
     )
   );
