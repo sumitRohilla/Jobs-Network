@@ -30,21 +30,50 @@ const AddJobsPage = ({ addJobSubmit }) => {
 
     let updatedFormData = { ...formData };
 
+    // string to Array storing for Responsibilities
     if (formData.fullDesc.res) {
-      const desc = formData.fullDesc.res;
+      const descRes = formData.fullDesc.res;
 
-      let descArr = desc
+      let resArr = descRes
         .split("\n")
         .map((str) => str.replace(/[\s]+/g, " ").trim());
 
       updatedFormData = {
         ...updatedFormData,
-        fullDesc: { ...updatedFormData.fullDesc, res: descArr },
+        fullDesc: { ...updatedFormData.fullDesc, res: resArr },
       };
     }
-    setFormData(updatedFormData);
 
-    addJobSubmit(updatedFormData, setLoading, setShowPopUp);
+    // string to Array storing for Requirements
+    if (formData.fullDesc.require) {
+      const descRequire = formData.fullDesc.require;
+
+      let requireArr = descRequire
+        .split("\n")
+        .map((str) => str.replace(/[\s]+/g, " ").trim());
+
+      updatedFormData = {
+        ...updatedFormData,
+        fullDesc: { ...updatedFormData.fullDesc, require: requireArr },
+      };
+    }
+
+    // skills to filtered skills data
+    if (formData.fullDesc.skills) {
+      const descSkills = formData.fullDesc.skills;
+
+      let skillsString = descSkills.replace(/\s*,\s*/g, ", ").trim();
+
+      console.log(skillsString);
+
+      updatedFormData = {
+        ...updatedFormData,
+        fullDesc: { ...updatedFormData.fullDesc, skills: skillsString },
+      };
+    }
+
+    setFormData(updatedFormData);
+    addJobSubmit(updatedFormData);
 
     navigate("/jobs");
   };

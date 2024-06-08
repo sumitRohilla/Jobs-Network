@@ -32,6 +32,28 @@ const JobEntry = ({
         selected[i].classList.add("bg-gray-700", "text-textColor");
       }
     }
+
+    // Formatting
+    let updatedFormData = { ...formData };
+
+    updatedFormData = {
+      ...updatedFormData,
+      fullDesc: {
+        ...updatedFormData.fullDesc,
+        res: updatedFormData.fullDesc.res.join("\n"),
+      },
+    };
+
+    updatedFormData = {
+      ...updatedFormData,
+      fullDesc: {
+        ...updatedFormData.fullDesc,
+        require: updatedFormData.fullDesc.require.join("\n"),
+      },
+    };
+
+    setFormData(updatedFormData);
+    console.log(formData.fullDesc.res, formData.fullDesc.require);
   }, [jobType]);
 
   return (
@@ -148,7 +170,7 @@ const JobEntry = ({
                   onChange={(e) => handleFormUpdate(e, "fullDesc", "res")}
                   className="border-2 text-sm rounded-lg w-full py-2 px-3 bg-mainDarkColor text-textColor focus:border-buttonColor focus:outline-none"
                   rows="4"
-                  placeholder="Add Responsibilities"
+                  placeholder="Designing user interactions on web pages.&#10;Designing and implementing RESTful APIs"
                 ></textarea>
               </div>
 
@@ -164,7 +186,7 @@ const JobEntry = ({
                   onChange={(e) => handleFormUpdate(e, "fullDesc", "require")}
                   className="border-2 text-sm rounded-lg w-full py-2 px-3 bg-mainDarkColor text-textColor focus:border-buttonColor focus:outline-none"
                   rows="5"
-                  placeholder="Add Requirements"
+                  placeholder="3+ years of experience in backend development.&#10;Bachelor's degree in Computer Science or related field."
                 ></textarea>
               </div>
             </div>
@@ -272,9 +294,9 @@ const JobEntry = ({
                 <input
                   value={formData.fullDesc.skills}
                   onChange={(e) => handleFormUpdate(e, "fullDesc", "skills")}
-                  className="border-b-2 w-full text-textColor py-2 pr-3 mb-2 bg-transparent focus:outline-none focus:border-buttonColor"
+                  className="border-b-2 text-sm w-full text-textColor py-2 pr-3 mb-2 bg-transparent focus:outline-none focus:border-buttonColor"
                   rows="4"
-                  placeholder="Add Skills"
+                  placeholder="React.js, Tailwind"
                   autoComplete="off"
                   required
                 ></input>

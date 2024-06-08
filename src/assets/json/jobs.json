@@ -243,6 +243,96 @@
         "contactEmail": "jobs@creativeminds.com",
         "contactPhone": "555-678-9012"
       }
+    },
+    {
+      "id": "4d95",
+      "type": "Full-Time",
+      "title": "awd",
+      "location": "dawffg",
+      "description": "awd",
+      "fullDesc": {
+        "res": [
+          "hello",
+          "ddawd dawa",
+          "dadadawdawd dawd",
+          "daw",
+          "adwd da",
+          "ad"
+        ],
+        "require": [
+          "ddawd dawa",
+          "daw",
+          "adwd da",
+          "ad",
+          "tailwind"
+        ],
+        "skills": "react.js, tail, hwelo down, yoo"
+      },
+      "salary": "Under ₹5L",
+      "company": {
+        "name": "awd",
+        "description": "awd",
+        "contactEmail": "adw@dfa",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "4d70",
+      "type": "Full-Time",
+      "title": "dad",
+      "location": "dawd",
+      "description": "dawd",
+      "fullDesc": {
+        "res": [
+          "dawd dawdadwa",
+          "awdwd wadw",
+          "dawdawd",
+          "hello"
+        ],
+        "require": [
+          "dawd dawdadwa",
+          "awdwd wadw",
+          "dawdawd",
+          "hello"
+        ],
+        "skills": "react.js, hello,nooo,   tail    ,java"
+      },
+      "salary": "Under ₹5L",
+      "company": {
+        "name": "awd",
+        "description": "awd",
+        "contactEmail": "awd@fas",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "972a",
+      "type": "Remote",
+      "title": "git hubbbbb",
+      "location": "awd",
+      "description": "dawdawd",
+      "fullDesc": {
+        "res": [
+          "afawf",
+          "dwad",
+          "awd daw",
+          "hello"
+        ],
+        "require": [
+          "afawf",
+          "dwad",
+          "awd daw",
+          "hello"
+        ],
+        "skills": "react.js, hello, nooo, tail, java"
+      },
+      "salary": "Under ₹5L",
+      "company": {
+        "name": "awdaw",
+        "description": "dawdawd",
+        "contactEmail": "adw@gs",
+        "contactPhone": ""
+      }
     }
   ]
 }
