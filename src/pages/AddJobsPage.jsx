@@ -12,7 +12,7 @@ const AddJobsPage = ({ addJobSubmit }) => {
     fullDesc: {
       res: [],
       require: [],
-      skills: [],
+      skills: "",
     },
     salary: "Under ₹5L",
     company: {
@@ -23,16 +23,28 @@ const AddJobsPage = ({ addJobSubmit }) => {
     },
   });
 
-  const [loading, setLoading] = useState(false);
-  const [showPopUp, setShowPopUp] = useState(false);
-
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
 
-    addJobSubmit(formData, setLoading, setShowPopUp);
+    let updatedFormData = { ...formData };
+
+    if (formData.fullDesc.res) {
+      const desc = formData.fullDesc.res;
+
+      let descArr = desc
+        .split("\n")
+        .map((str) => str.replace(/[\s]+/g, " ").trim());
+
+      updatedFormData = {
+        ...updatedFormData,
+        fullDesc: { ...updatedFormData.fullDesc, res: descArr },
+      };
+    }
+    setFormData(updatedFormData);
+
+    addJobSubmit(updatedFormData, setLoading, setShowPopUp);
 
     navigate("/jobs");
   };
@@ -40,11 +52,8 @@ const AddJobsPage = ({ addJobSubmit }) => {
   return (
     <>
       <JobEntry
-        loading={loading}
         formData={formData}
         setFormData={setFormData}
-        showPopUp={showPopUp}
-        setShowPopUp={setShowPopUp}
         handleSubmit={handleSubmit}
       />
     </>

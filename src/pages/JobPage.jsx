@@ -1,5 +1,4 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
@@ -7,14 +6,11 @@ const JobPage = ({ deleteJob }) => {
   const job = useLoaderData();
   const navigate = useNavigate();
 
-  const [showPopUp, setShowPopUp] = useState(false);
-  const [loading, setLoading] = useState(false);
-
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm("Are you sure you want to delete this Job?");
 
     if (!confirm) return;
-    deleteJob(jobId, setLoading, setShowPopUp);
+    deleteJob(jobId);
 
     navigate("/jobs");
   };
@@ -77,7 +73,7 @@ const JobPage = ({ deleteJob }) => {
                   Skills Required
                 </h3>
 
-                <p className="mb-6">{job.fullDesc.skills.join(", ")}</p>
+                <p className="mb-6">{job.fullDesc.skills}</p>
 
                 <h3 className="text-buttonColor text-lg font-bold mb-4">
                   Salary

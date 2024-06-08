@@ -21,7 +21,7 @@ const App = () => {
   const signal = controller.signal;
 
   // Add Job
-  const addJob = async (formData, setLoading) => {
+  const addJob = async (formData) => {
     try {
       const response = await toast.promise(
         fetch("/api/jobs", {
@@ -51,15 +51,12 @@ const App = () => {
       } else {
         console.error(e);
       }
-    } finally {
-      setLoading(false);
     }
   };
 
   // Delete Job
-  const deleteJob = async (id, setLoading, setShowPopUp) => {
+  const deleteJob = async (id) => {
     try {
-      setShowPopUp(true);
       const response = await toast.promise(
         fetch(`/api/jobs/${id}`, {
           method: "DELETE",
@@ -83,15 +80,12 @@ const App = () => {
       } else {
         console.error(e);
       }
-    } finally {
-      setLoading(false);
     }
   };
 
   // Update Job
-  const updateJob = async (formData, setLoading, setShowPopUp) => {
+  const updateJob = async (formData) => {
     try {
-      setShowPopUp(true);
       const response = await toast.promise(
         fetch(`/api/jobs/${formData.id}`, {
           method: "PUT",
@@ -120,8 +114,6 @@ const App = () => {
       } else {
         console.error(e);
       }
-    } finally {
-      setLoading(false);
     }
   };
 

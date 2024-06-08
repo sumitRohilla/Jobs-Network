@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
-  const activeClass = ({ isActive }) =>
+  const navActive = ({ isActive }) =>
     isActive
-      ? "bg-buttonColor text-mainDarkColor px-2 py-3 rounded-lg hover:bg-gray-700"
+      ? "bg-buttonColor text-mainDarkColor px-2 py-3 rounded-lg hover:bg-gray-700 hover:text-textColor"
       : "px-2 py-3 rounded-lg hover:bg-gray-700";
 
   const [isOpen, setIsOpen] = useState(false);
@@ -42,25 +42,25 @@ const Navbar = () => {
             className="w-6 h-6 cursor-pointer"
           />
         </div>
-        <div className="menu-links flex flex-col hidden bg-opacity-95 mr-5 bg-zinc-900 space-y-5 md:space-x-5 md:space-y-0 md:static md:bg-transparent md:flex md:flex-row">
+        <div className="menu-links flex flex-col hidden bg-opacity-95 mr-5 sm:mr-10 bg-zinc-900 space-y-5 md:space-x-5 md:space-y-0 md:static md:bg-transparent md:flex md:flex-row">
           <NavLink
             to="/"
             onClick={() => setIsOpen(false)}
-            className={activeClass}
+            className={navActive}
           >
             Home
           </NavLink>
           <NavLink
             to="/jobs"
             onClick={() => setIsOpen(false)}
-            className={activeClass}
+            className={navActive}
           >
             Jobs
           </NavLink>
           <NavLink
             to="/add-job"
             onClick={() => setIsOpen(false)}
-            className={activeClass}
+            className={navActive}
           >
             Add Jobs
           </NavLink>

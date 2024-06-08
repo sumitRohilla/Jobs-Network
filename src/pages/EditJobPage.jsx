@@ -27,15 +27,27 @@ const EditJobPage = ({ updateJobSubmit }) => {
     },
   });
 
-  const [loading, setLoading] = useState(false);
-  const [showPopUp, setShowPopUp] = useState(false);
-
   // on submitting form with detailss
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
 
-    updateJobSubmit(formData, setLoading, setShowPopUp);
+    let updatedFormData = { ...formData };
+
+    if (formData.fullDesc.res) {
+      const desc = formData.fullDesc.res;
+
+      let descArr = desc
+        .split("\n")
+        .map((str) => str.replace(/[\s]+/g, " ").trim());
+
+      updatedFormData = {
+        ...updatedFormData,
+        fullDesc: { ...updatedFormData.fullDesc, res: descArr },
+      };
+    }
+    setFormData(updatedFormData);
+
+    updateJobSubmit(updatedFormData, setLoading, setShowPopUp);
 
     navigate("/jobs");
   };

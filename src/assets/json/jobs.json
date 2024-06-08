@@ -17,7 +17,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Strong problem-solving skills, excellent communication abilities"
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "React.js", "Vue.js"]
+        "skills": "HTML, CSS, JavaScript, React.js, Vue.js"
       },
       "location": "Bengaluru, India",
       "salary": "₹10L - ₹12L",
@@ -44,7 +44,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Eager to learn, strong team player"
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "React.js"]
+        "skills": "HTML, CSS, JavaScript, React.js"
       },
       "location": "Mumbai, India",
       "salary": "₹5L - ₹8L",
@@ -71,7 +71,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Attention to detail, ability to work in a team"
         ],
-        "skills": ["HTML", "CSS", "JavaScript", "Angular"]
+        "skills": "HTML, CSS, JavaScript, Angular"
       },
       "location": "Hyderabad, India",
       "salary": "₹12L - ₹15L",
@@ -98,7 +98,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Strong problem-solving skills, ability to work in a fast-paced environment"
         ],
-        "skills": ["Node.js", "Express.js", "MongoDB", "React.js"]
+        "skills": "Node.js, Express.js, MongoDB, React.js"
       },
       "location": "Bengaluru, India",
       "salary": "₹12L - ₹15L",
@@ -125,7 +125,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Ability to manage a project from start to finish, strong communication skills"
         ],
-        "skills": ["React.js", "Node.js", "HTML", "CSS"]
+        "skills": "React.js, Node.js, HTML, CSS"
       },
       "location": "Mumbai, India",
       "salary": "₹15L - ₹18L",
@@ -152,7 +152,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Strong problem-solving skills, ability to work in a team"
         ],
-        "skills": ["Python", "Django", "React.js", "API Development"]
+        "skills": "Python, Django, React.js, API Development"
       },
       "location": "Hyderabad, India",
       "salary": "₹12L - ₹15L",
@@ -179,7 +179,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Creative mindset, ability to work independently"
         ],
-        "skills": ["JavaScript", "HTML", "CSS", "Vue.js"]
+        "skills": "JavaScript, HTML, CSS, Vue.js"
       },
       "location": "Pune, India",
       "salary": "₹10L - ₹12L",
@@ -206,7 +206,7 @@
           "Bachelor's degree in Computer Science or related field",
           "Strong analytical skills, ability to manage multiple tasks"
         ],
-        "skills": ["React.js", "Node.js", "HTML", "CSS"]
+        "skills": "React.js, Node.js, HTML, CSS"
       },
       "location": "Chennai, India",
       "salary": "₹12L - ₹15L",
@@ -233,7 +233,7 @@
           "Bachelor's degree in Design, Computer Science, or related field",
           "Creative portfolio, strong attention to detail"
         ],
-        "skills": ["UI Design", "UX Design", "Graphic Design", "Prototyping"]
+        "skills": "UI Design, UX Design, Graphic Design, Prototyping"
       },
       "location": "Delhi, India",
       "salary": "₹8L - ₹10L",
