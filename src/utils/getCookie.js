@@ -9,6 +9,8 @@ export const getCookie = (name) => {
       const index = cookie.indexOf("=");
       const cookieName = cookie.substring(0, index).trim();
 
+      console.log(cookieName)
+
       if (cookieName === name) {
         cookieValue = decodeURIComponent(cookie.substring(index + 1));
         break;
