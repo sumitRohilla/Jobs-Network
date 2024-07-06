@@ -12,6 +12,7 @@ const CsrfTokenProvider = ({ children }) => {
     const fetchCsrfToken = async () => {
       try {
         const token = getCookie("csrftoken");
+        console.log("token", token)
         if (!token) {
           const response = await fetch(`${apiUrl}/csrf-token/`, {
             signal: signal,
