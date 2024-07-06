@@ -51,9 +51,9 @@ const DashboardPage = () => {
           <Spinners loading={loading} />
         ) : (
           <>
-            <h2 className="text-3xl mb-16 font-bold text-textColor mb-8 text-center">
+            <h2 className="text-xl md:text-3xl mb-16 font-bold text-textColor mb-8 text-center">
               {!isLoggedIn
-                ? "Login to View Applied Jobs"
+                ? "Login to View Created Jobs"
                 : Object.keys(jobData).length === 0
                 ? "No Jobs Created by You"
                 : "Jobs Created by You"}
@@ -65,7 +65,7 @@ const DashboardPage = () => {
               >
                 <div className="p-4">
                   <div className="flex justify-between container m-auto p-6 md:py-6 md:pl-6">
-                    <h2 className="text-textColor text-lg flex items-center">
+                    <h2 className="text-textColor text-lg mr-2 flex items-center">
                       {title}
                     </h2>
                     <Link
