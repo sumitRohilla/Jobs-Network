@@ -8,7 +8,7 @@ const HomeCards = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg text-textColor">
           <Card
             title="For Developers"
-            subTitle="Browse our React jobs and start your career today"
+            subTitle="Browse our Developer jobs and start your career today"
             buttonText="Browse Jobs"
             link="/jobs"
           />

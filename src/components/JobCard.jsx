@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const JobCard = ({ job }) => {
   const [fullDescState, setFullDescState] = useState(false);
+
   let desc = job.description;
 
   if (!fullDescState) {
@@ -37,7 +38,7 @@ const JobCard = ({ job }) => {
             {job.location}
           </div>
           <Link
-            to={`/jobs/${job.id}`}
+            to={`/jobs/${job.slug}`}
             className="h-[36px] buttonStyle px-4 py-2 rounded-lg text-center text-sm"
           >
             Read More

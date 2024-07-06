@@ -1,11 +1,13 @@
-const jobLoader = async ({ params, request }) => {
-  const apiUrl = `/api/jobs/${params.id}`;
+const apiUrl = import.meta.env.VITE_API_URL;
+
+export const jobLoader = async ({ params, request }) => {
+  const url = `${apiUrl}/jobs/${params.slug}/`;
   const controller = new AbortController();
 
   request.signal.addEventListener("abort", () => controller.abort());
 
   try {
-    const response = await fetch(apiUrl, { signal: controller.signal });
+    const response = await fetch(url, { signal: controller.signal });
 
     if (!response.ok) {
       throw new Error(
@@ -13,7 +15,6 @@ const jobLoader = async ({ params, request }) => {
       );
     }
     const data = await response.json();
-
     return data;
   } catch (e) {
     if (e.name == "AbortError") {
@@ -23,5 +24,3 @@ const jobLoader = async ({ params, request }) => {
     }
   }
 };
-
-export default jobLoader;

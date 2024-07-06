@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-toastify/ReactToastify.css";
+import { useFormDataContext } from "../contexts/FormDataContext";
 
-const JobEntry = ({
-  formData,
-  setFormData,
-  handleSubmit,
-  isEditPage = false,
-}) => {
+const JobEntry = ({ handleSubmit, isEditPage = false }) => {
+  const { formData, setFormData } = useFormDataContext();
+
   //Function to Update formData state
   const handleFormUpdate = (e, prop, subProp = null) => {
     const value = subProp
@@ -18,7 +16,7 @@ const JobEntry = ({
     setFormData({ ...formData, [prop]: value });
   };
 
-  const [jobType, setJobType] = useState("Full-Time");
+  const [jobType, setJobType] = useState(formData.type);
 
   useEffect(() => {
     const selected = document.querySelectorAll(".job-type");
@@ -32,34 +30,12 @@ const JobEntry = ({
         selected[i].classList.add("bg-gray-700", "text-textColor");
       }
     }
-
-    // Formatting
-    let updatedFormData = { ...formData };
-
-    updatedFormData = {
-      ...updatedFormData,
-      fullDesc: {
-        ...updatedFormData.fullDesc,
-        res: updatedFormData.fullDesc.res.join("\n"),
-      },
-    };
-
-    updatedFormData = {
-      ...updatedFormData,
-      fullDesc: {
-        ...updatedFormData.fullDesc,
-        require: updatedFormData.fullDesc.require.join("\n"),
-      },
-    };
-
-    setFormData(updatedFormData);
-    console.log(formData.fullDesc.res, formData.fullDesc.require);
   }, [jobType]);
 
   return (
     <>
       <section className="bg-mainLightColor">
-        <div className="flex justify-between container m-auto py-6 px-6">
+        <div className="flex justify-between container m-auto p-6">
           <Link
             to="/jobs"
             className="text-textColor hover:opacity-60 flex items-center"
@@ -169,7 +145,7 @@ const JobEntry = ({
                   value={formData.fullDesc.res}
                   onChange={(e) => handleFormUpdate(e, "fullDesc", "res")}
                   className="border-2 text-sm rounded-lg w-full py-2 px-3 bg-mainDarkColor text-textColor focus:border-buttonColor focus:outline-none"
-                  rows="4"
+                  rows="5"
                   placeholder="Designing user interactions on web pages.&#10;Designing and implementing RESTful APIs"
                 ></textarea>
               </div>
@@ -256,6 +232,7 @@ const JobEntry = ({
                   required
                 />
               </div>
+
               <div className="mb-4">
                 <label
                   htmlFor="contact_phone"

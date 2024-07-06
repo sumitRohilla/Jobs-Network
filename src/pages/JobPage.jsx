@@ -1,31 +1,63 @@
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { AppliedContext } from "../contexts/AppliedContext";
+import { CsrfContext } from "../contexts/CsrfTokenContext";
 
 const JobPage = ({ deleteJob }) => {
+  const { isLoggedIn, userId } = useContext(AuthContext);
+  const { getCsrfToken } = useContext(CsrfContext);
+  const { getApplied, appliedSlugs, postApplied, withdrawApplied } =
+    useContext(AppliedContext);
+
   const job = useLoaderData();
   const navigate = useNavigate();
 
-  const onDeleteClick = (jobId) => {
+  const onDeleteClick = (slug) => {
     const confirm = window.confirm("Are you sure you want to delete this Job?");
 
     if (!confirm) return;
-    deleteJob(jobId);
+    const res = deleteJob(slug, getCsrfToken);
 
-    navigate("/jobs");
+    if (res) navigate("/jobs");
   };
+
+  if (isLoggedIn && userId !== job.author) {
+    useEffect(() => {
+      getApplied();
+    }, []);
+  }
 
   return (
     <>
       <section className="bg-mainLightColor">
-        <div className="container m-auto py-6 px-6">
+        <div className="flex justify-between container m-auto p-6 md:py-6 md:pl-6">
           <Link
             to="/jobs"
-            className="text-textColor hover:opacity-60 flex items-center"
+            className="text-textColor text-lg hover:opacity-60 flex items-center"
           >
             <FaArrowLeft className="mr-2" />
-            Back to Job Listings
+            Back to Jobs
           </Link>
+          {isLoggedIn &&
+            userId !== job.author &&
+            (appliedSlugs.includes(job.slug) ? (
+              <button
+                onClick={() => withdrawApplied(job.slug)}
+                className="buttonStyle px-10 py-4 rounded-lg"
+              >
+                Withdraw
+              </button>
+            ) : (
+              <button
+                onClick={() => postApplied(job.slug)}
+                className="buttonStyle px-10 py-4 rounded-lg"
+              >
+                Apply
+              </button>
+            ))}
         </div>
       </section>
 
@@ -54,7 +86,7 @@ const JobPage = ({ deleteJob }) => {
                 </h3>
 
                 <ul className="pl-4 mb-6 list-disc space-y-2">
-                  {job.fullDesc.res.map((value, index) => (
+                  {job.fullDesc.res.split("\n").map((value, index) => (
                     <li key={index}>{value}</li>
                   ))}
                 </ul>
@@ -64,7 +96,7 @@ const JobPage = ({ deleteJob }) => {
                 </h3>
 
                 <ul className="pl-4 mb-6 list-disc space-y-2">
-                  {job.fullDesc.require.map((value, index) => (
+                  {job.fullDesc.require.split("\n").map((value, index) => (
                     <li key={index}>{value}</li>
                   ))}
                 </ul>
@@ -84,7 +116,7 @@ const JobPage = ({ deleteJob }) => {
             </main>
 
             <aside className="md:col-start-1 md:col-span-2 xl:col-start-2">
-              <div className="flex flex-col md:flex-row xl:flex-col bg-mainDarkColor text-textColor p-6 rounded-lg shadow-md">
+              <div className="flex flex-col md:flex-row xl:flex-col md:justify-between bg-mainDarkColor text-textColor p-6 rounded-lg shadow-md">
                 <div className="md:pr-8 xl:pr-0 min-w-72">
                   <h3 className="text-xl font-bold mb-6">Company Info</h3>
 
@@ -102,29 +134,35 @@ const JobPage = ({ deleteJob }) => {
                     {job.company.contactEmail}
                   </p>
 
-                  <h3 className="text-xl">Contact Phone:</h3>
+                  {job.company.contactPhone && (
+                    <>
+                      <h3 className="text-xl">Contact Phone:</h3>
 
-                  <p className="my-2 bg-gray-700 text-textColor p-2 rounded-lg font-bold">
-                    {job.company.contactPhone}
-                  </p>
+                      <p className="my-2 bg-gray-700 text-textColor p-2 rounded-lg font-bold">
+                        {job.company.contactPhone}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
 
-              <div className="bg-mainDarkColor text-textColor p-6 rounded-lg shadow-md mt-6">
-                <h3 className="text-xl font-bold mb-6">Manage Job</h3>
-                <Link
-                  to={`/edit-job/${job.id}`}
-                  className="buttonStyle text-center font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
-                >
-                  Update Job
-                </Link>
-                <button
-                  onClick={() => onDeleteClick(job.id)}
-                  className="buttonStyle font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
-                >
-                  Delete Job
-                </button>
-              </div>
+              {isLoggedIn && userId === job.author && (
+                <div className="bg-mainDarkColor text-textColor p-6 rounded-lg shadow-md mt-6">
+                  <h3 className="text-xl font-bold mb-6">Manage Job</h3>
+                  <Link
+                    to={`/edit-job/${job.slug}`}
+                    className="buttonStyle text-center font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
+                  >
+                    Update Job
+                  </Link>
+                  <button
+                    onClick={() => onDeleteClick(job.slug)}
+                    className="buttonStyle font-bold py-2 px-4 rounded-lg w-full focus:outline-none focus:shadow-outline mt-4 block"
+                  >
+                    Delete Job
+                  </button>
+                </div>
+              )}
             </aside>
           </div>
         </div>

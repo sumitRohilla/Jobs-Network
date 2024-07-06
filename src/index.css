@@ -22,9 +22,8 @@
   color: rgb(246, 247, 249);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .menu-links {
-    height: 50%;
     width: 60%;
     margin-right: 2rem;
     padding: 1rem;
