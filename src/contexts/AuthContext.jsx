@@ -38,6 +38,7 @@ const AuthProvider = ({ children }) => {
   };
 
   const login = async (credentials) => {
+    console.log("login", getCsrfToken())
     try {
       const response = await fetch(`${apiUrl}/login/`, {
         method: "POST",
