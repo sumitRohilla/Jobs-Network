@@ -27,7 +27,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", ".vercel.app", ".now.sh" "127.0.0.1","api-job-network.onrender.com"]
+ALLOWED_HOSTS = ["localhost", ".vercel.app", ".now.sh" "127.0.0.1","onrender.com"]
 
 
 # Application definition
@@ -134,10 +134,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://sumitrohilla.pythonanywhere.com",
-    "https://jobs-network.vercel.app",
-    "https://jobs-network.netlify.app",
-    "https://job-network.onrender.com"
+    "https://*.onrender.com"
 ]
 
 # CSRF settings
@@ -145,14 +142,11 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://sumitrohilla.pythonanywhere.com",
-    "https://jobs-network.vercel.app",
-    "https://jobs-network.netlify.app",
     "https://*.onrender.com"
 ]
 
 
-CSRF_COOKIE_SAMESITE = "None"
+CSRF_COOKIE_SAMESITE = "Lax"
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = False
 
