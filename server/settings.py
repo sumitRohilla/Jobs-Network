@@ -48,11 +48,11 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "jobs.middleware.CustomCsrfViewMiddleware",
-    # "django.middleware.csrf.CsrfViewMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "jobs.middleware.CustomCsrfViewMiddleware",
 ]
 
 ROOT_URLCONF = "server.urls"
@@ -135,6 +135,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://sumitrohilla.pythonanywhere.com",
+    "https://jobs-network.vercel.app",
     "https://jobs-network.netlify.app"
 ]
 
@@ -144,6 +145,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://sumitrohilla.pythonanywhere.com",
+    "https://jobs-network.vercel.app",
     "https://jobs-network.netlify.app"
 ]
 
