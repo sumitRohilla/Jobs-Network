@@ -148,11 +148,11 @@ CSRF_TRUSTED_ORIGINS = [
     "https://sumitrohilla.pythonanywhere.com",
     "https://jobs-network.vercel.app",
     "https://jobs-network.netlify.app",
-    "https://job-network.onrender.com"
+    "https://*.onrender.com"
 ]
 
 
-CSRF_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SAMESITE = "None"
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = False
 
