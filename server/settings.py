@@ -136,7 +136,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://sumitrohilla.pythonanywhere.com",
     "https://jobs-network.vercel.app",
-    "https://jobs-network.netlify.app"
+    "https://jobs-network.netlify.app",
+    "https://job-network.onrender.com"
 ]
 
 # CSRF settings
@@ -146,15 +147,16 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://sumitrohilla.pythonanywhere.com",
     "https://jobs-network.vercel.app",
-    "https://jobs-network.netlify.app"
+    "https://jobs-network.netlify.app",
+    "https://job-network.onrender.com"
 ]
 
 
-CSRF_COOKIE_SAMESITE = "none"
+CSRF_COOKIE_SAMESITE = "Lax"
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = False
 
-SESSION_COOKIE_SAMESITE = "none"
+SESSION_COOKIE_SAMESITE = "Lax"
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 CSRF_USE_SESSIONS = False
