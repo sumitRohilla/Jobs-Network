@@ -7,8 +7,8 @@ env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 SECRET_KEY = env("SECRET_KEY")
-DEBUG = True
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "jobs-network.onrender.com", 'jobs-network.koyeb.app']
+DEBUG = False
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "jobs-network.onrender.com"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -84,19 +84,13 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
     "https://jobs-network.onrender.com",
-    "https://jobs-network.koyeb.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
     "https://jobs-network.onrender.com",
-    "https://jobs-network.koyeb.app"
 ]
 
 CSRF_COOKIE_SAMESITE = "Strict"
