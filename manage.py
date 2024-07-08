@@ -18,5 +18,12 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+    # Use PORT environment variable if set, otherwise default to 8000
+    port = os.environ.get("PORT", 8000)
+    execute_from_command_line([sys.argv[0], "runserver", "0.0.0.0:" + str(port)])
+    
+
 if __name__ == '__main__':
     main()
+
+    
