@@ -45,7 +45,7 @@ const DashboardPage = () => {
     }
 
     return () => controller.abort();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <section className="bg-mainLightColor px-4 py-10 grow">

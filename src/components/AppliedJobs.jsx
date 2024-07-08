@@ -12,7 +12,7 @@ const AppliedJobs = () => {
     if (isLoggedIn) {
       getApplied();
     }
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <section className="bg-mainLightColor px-4 py-10 grow">
