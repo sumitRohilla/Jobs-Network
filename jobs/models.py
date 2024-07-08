@@ -33,7 +33,6 @@ class Job(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            print("in slug method")
             self.slug = slugify(self.title)
 
             original_slug = self.slug

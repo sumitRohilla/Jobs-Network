@@ -2,7 +2,7 @@ from django.db.models import Subquery
 from django.http import JsonResponse
 from django.views import View
 from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
+from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import Job, AppliedJob
 from .forms import JobForm
 import json
@@ -214,14 +214,14 @@ class AppliedJobView(View):
                 return JsonResponse({"message": "Job not found"}, status=500)
 
             if not AppliedJob.objects.filter(user=request.user, job=job).exists():
-                return JsonResponse({"message": "Job does not exist"}, status=400)
+                return JsonResponse({"message": "Job was never Applied before!"}, status=400)
 
-            applied_job = AppliedJob.objects.get(job=job)
+            applied_job = AppliedJob.objects.get(job=job, user=request.user)
             applied_job.delete()
             return JsonResponse({"message": "Job Withdrawn successfully!"})
 
         except Exception as e:
-            return JsonResponse({"message": "Error while fetching Jobs"}, status=500)
+            return JsonResponse({"message": f"Error while fetching Jobs"}, status=500)
 
 
 class ApplierView(View):

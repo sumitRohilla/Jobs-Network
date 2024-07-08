@@ -2,7 +2,6 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views import View
-from django.utils.decorators import method_decorator
 from django.utils import timezone
 from datetime import timedelta
 from .models import UserOTP
