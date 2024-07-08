@@ -3,10 +3,7 @@ services:
     name: jobs-network
     env: python
     plan: free
-    buildCommand:
-      - pip install -r requirements.txt
-      - python manage.py collectstatic --noinput
-      - python manage.py migrate
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
     startCommand: cd server && gunicorn server.wsgi:application
     staticPublishPath: staticfiles
     envVars:
@@ -19,8 +16,3 @@ services:
       - key: EMAIL_PASSWORD
         sync: false
         value: ${EMAIL_PASSWORD}
-
-cronJobs:
-  - name: keep-alive
-    schedule: "*/14 * * * *"
-    command: "curl -I https://jobs-network.onrender.com && echo hello"
