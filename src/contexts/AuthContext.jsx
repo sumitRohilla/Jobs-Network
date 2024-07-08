@@ -39,16 +39,21 @@ const AuthProvider = ({ children }) => {
 
   const login = async (credentials, navigate) => {
     try {
-      const response = await fetch(`${apiUrl}/login/`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "X-CSRFToken": getCsrfToken(),
-        },
-        signal: signal,
-        credentials: "include",
-        body: JSON.stringify(credentials),
-      });
+      const response = await toast.promise(
+        fetch(`${apiUrl}/login/`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "X-CSRFToken": getCsrfToken(),
+          },
+          signal: signal,
+          credentials: "include",
+          body: JSON.stringify(credentials),
+        }),
+        {
+          pending: "Logging in...",
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -97,16 +102,21 @@ const AuthProvider = ({ children }) => {
 
   const register = async (credentials, navigate) => {
     try {
-      const response = await fetch(`${apiUrl}/register/`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "X-CSRFToken": getCsrfToken(),
-        },
-        credentials: "include",
-        signal: signal,
-        body: JSON.stringify(credentials),
-      });
+      const response = await toast.promise(
+        fetch(`${apiUrl}/register/`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "X-CSRFToken": getCsrfToken(),
+          },
+          credentials: "include",
+          signal: signal,
+          body: JSON.stringify(credentials),
+        }),
+        {
+          pending: "Registering user...",
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -122,15 +132,20 @@ const AuthProvider = ({ children }) => {
 
   const logout = async (navigate, setIsOpen) => {
     try {
-      const response = await fetch(`${apiUrl}/logout/`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "X-CSRFToken": getCsrfToken(),
-        },
-        signal: signal,
-        credentials: "include",
-      });
+      const response = await toast.promise(
+        fetch(`${apiUrl}/logout/`, {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            "X-CSRFToken": getCsrfToken(),
+          },
+          signal: signal,
+          credentials: "include",
+        }),
+        {
+          pending: "logging out...",
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();

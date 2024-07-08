@@ -49,16 +49,21 @@ const AppliedProvider = ({ children }) => {
   // applied post call
   const postApplied = async (slug) => {
     try {
-      const response = await fetch(`${apiUrl}/applied-job/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": getCsrfToken(),
-        },
-        body: JSON.stringify({ slug: slug }),
-        credentials: "include",
-        signal: signal,
-      });
+      const response = await toast.promise(
+        fetch(`${apiUrl}/applied-job/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCsrfToken(),
+          },
+          body: JSON.stringify({ slug: slug }),
+          credentials: "include",
+          signal: signal,
+        }),
+        {
+          pending: "Applying...",
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
@@ -79,16 +84,21 @@ const AppliedProvider = ({ children }) => {
   // applied delete call
   const withdrawApplied = async (slug) => {
     try {
-      const response = await fetch(`${apiUrl}/applied-job/`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": getCsrfToken(),
-        },
-        body: JSON.stringify({ slug: slug }),
-        credentials: "include",
-        signal: signal,
-      });
+      const response = await toast.promise(
+        fetch(`${apiUrl}/applied-job/`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCsrfToken(),
+          },
+          body: JSON.stringify({ slug: slug }),
+          credentials: "include",
+          signal: signal,
+        }),
+        {
+          pending: "Withdrawing...",
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();

@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const apiUrl = import.meta.env.VITE_API_URL;
 
 export const jobLoader = async ({ params, request }) => {
@@ -7,7 +9,12 @@ export const jobLoader = async ({ params, request }) => {
   request.signal.addEventListener("abort", () => controller.abort());
 
   try {
-    const response = await fetch(url, { signal: controller.signal });
+    const response = await toast.promise(
+      fetch(url, { signal: controller.signal }),
+      {
+        pending: "Loading...",
+      }
+    );
 
     if (!response.ok) {
       throw new Error(
