@@ -87,6 +87,11 @@ class SendOTP(View):
 
             if otp_instance:
                 if timezone.now() - otp_instance.created_at <= timedelta(minutes=10):
+
+                    otp_instance.username = username
+                    otp_instance.password = password
+                    otp_instance.save()
+                    
                     return JsonResponse(
                         {"message": "OTP already sent", "otpSent": True}, status=400
                     )
