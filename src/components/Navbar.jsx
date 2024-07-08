@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import logo from "../assets/images/logo.svg";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -29,10 +29,10 @@ const Navbar = () => {
   return (
     <nav className="bg-mainLightColor sticky top-0 z-10">
       <div className="flex max-w-7xl h-20 items-center justify-between mx-auto text-textColor">
-        <div className="flex space-x-5 ml-5 sm:ml-10">
+        <Link to={"/"} className="flex space-x-5 ml-5 sm:ml-10">
           <img className="h-10 w-auto" src={logo} alt="logo" />
           <h1 className="my-auto">Jobs Network</h1>
-        </div>
+        </Link>
         <div className="mr-8 menu-close lg:hidden">
           <FaBars
             onClick={() => setIsOpen(true)}
