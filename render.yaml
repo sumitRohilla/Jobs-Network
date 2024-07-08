@@ -11,7 +11,8 @@ services:
     staticPublishPath: staticfiles
     envVars:
       - key: SECRET_KEY
-        generateValue: true
+        sync: false
+        value: ${SECRET_KEY}
       - key: EMAIL_ID
         sync: false
         value: ${EMAIL_ID}
@@ -21,5 +22,5 @@ services:
 
 cronJobs:
   - name: keep-alive
-    schedule: "*/10 * * * *"
+    schedule: "*/14 * * * *"
     command: "curl -I https://jobs-network.onrender.com && echo hello"
