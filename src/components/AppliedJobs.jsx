@@ -9,7 +9,9 @@ const AppliedJobs = () => {
   const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
-    getApplied();
+    if (isLoggedIn) {
+      getApplied();
+    }
   }, []);
 
   return (
@@ -26,11 +28,13 @@ const AppliedJobs = () => {
                 ? "No Jobs Applied"
                 : "Jobs Applied by You"}
             </h2>
-            <div className="grid grid-cols-1 mb-8 md:grid-cols-3 gap-6">
-              {appliedJobs.map((job) => (
-                <JobCard key={job.slug} job={job} />
-              ))}
-            </div>
+            {isLoggedIn && (
+              <div className="grid grid-cols-1 mb-8 md:grid-cols-3 gap-6">
+                {appliedJobs.map((job) => (
+                  <JobCard key={job.slug} job={job} />
+                ))}
+              </div>
+            )}
           </>
         )}
       </div>

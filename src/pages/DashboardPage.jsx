@@ -4,7 +4,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 
 const DashboardPage = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [jobData, setJobData] = useState({});
   const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -14,32 +14,35 @@ const DashboardPage = () => {
   const signal = controller.signal;
 
   useEffect(() => {
-    const fetchAppliers = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/applier/`, {
-          credentials: "include",
-          signal: signal,
-        });
+    if (isLoggedIn) {
+      const fetchAppliers = async () => {
+        setLoading(true);
+        try {
+          const response = await fetch(`${apiUrl}/applier/`, {
+            credentials: "include",
+            signal: signal,
+          });
 
-        if (!response.ok) {
-          throw new Error(
-            "Network Error while fetching data!! Status : " + response.status
-          );
-        }
-        const data = await response.json();
+          if (!response.ok) {
+            throw new Error(
+              "Network Error while fetching data!! Status : " + response.status
+            );
+          }
+          const data = await response.json();
 
-        setJobData(data);
-      } catch (e) {
-        if (e.name === "AbortError") {
-          console.log("Aborting Request!!");
-        } else {
-          console.error(e);
+          setJobData(data);
+        } catch (e) {
+          if (e.name === "AbortError") {
+            console.log("Aborting Request!!");
+          } else {
+            console.error(e);
+          }
+        } finally {
+          setLoading(false);
         }
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAppliers();
+      };
+      fetchAppliers();
+    }
 
     return () => controller.abort();
   }, []);

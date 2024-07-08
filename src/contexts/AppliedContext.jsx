@@ -9,7 +9,7 @@ const AppliedProvider = ({ children }) => {
   const { getCsrfToken } = useContext(CsrfContext);
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [appliedSlugs, setAppliedSlugs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const controller = new AbortController();
