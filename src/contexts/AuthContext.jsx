@@ -37,8 +37,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const login = async (credentials) => {
-    console.log("login", getCsrfToken())
+  const login = async (credentials, navigate) => {
     try {
       const response = await fetch(`${apiUrl}/login/`, {
         method: "POST",
@@ -57,14 +56,14 @@ const AuthProvider = ({ children }) => {
       }
       await checkAuth();
       toast.success("Logged in Successfully ! 👌");
-      return true;
+      navigate("/");
     } catch (e) {
       toast.error(`${e.message} 🤯` || "Error occured ! 🤯");
       console.error("Error user login", e);
     }
   };
 
-  const sendOTP = async (credentials) => {
+  const sendOTP = async (credentials, setOtpSent) => {
     try {
       const response = await toast.promise(
         fetch(`${apiUrl}/send-otp/`, {
@@ -88,7 +87,7 @@ const AuthProvider = ({ children }) => {
       }
       const data = await response.json();
       toast.success("OTP sent Successfully ! 👌");
-      return data.otpSent;
+      setOtpSent(data.otpSent);
     } catch (e) {
       toast.error(`${e.message} 🤯` || "Error occured ! 🤯");
       console.error("Error sending otp", e);
@@ -96,7 +95,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (credentials) => {
+  const register = async (credentials, navigate) => {
     try {
       const response = await fetch(`${apiUrl}/register/`, {
         method: "POST",
@@ -114,14 +113,14 @@ const AuthProvider = ({ children }) => {
         throw new Error(error.message || "Unknown error occured");
       }
       toast.success("User Registered Successfully ! 👌");
-      return true;
+      navigate("/");
     } catch (e) {
       toast.error(`${e.message} 🤯` || "Error occured ! 🤯");
       console.error("Error registering user", e);
     }
   };
 
-  const logout = async () => {
+  const logout = async (navigate, setIsOpen) => {
     try {
       const response = await fetch(`${apiUrl}/logout/`, {
         method: "POST",
@@ -139,6 +138,8 @@ const AuthProvider = ({ children }) => {
       }
       await checkAuth();
       toast.success("Logged out successfully ! 👌");
+      setIsOpen(false);
+      navigate("/");
     } catch (e) {
       toast.error(`${e.message} 🤯` || "Error occured ! 🤯");
       console.error("Error logging in", e);

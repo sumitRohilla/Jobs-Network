@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "react-toastify/ReactToastify.css";
 import { useFormDataContext } from "../contexts/FormDataContext";
+import { AuthContext } from "../contexts/AuthContext";
 
 const JobEntry = ({ handleSubmit, isEditPage = false }) => {
   const { formData, setFormData } = useFormDataContext();
+  const { isLoggedIn } = useContext(AuthContext);
 
   //Function to Update formData state
   const handleFormUpdate = (e, prop, subProp = null) => {
@@ -35,6 +37,12 @@ const JobEntry = ({ handleSubmit, isEditPage = false }) => {
   return (
     <>
       <section className="bg-mainLightColor">
+        {!isLoggedIn && (
+          <h2 className="text-3xl font-bold text-textColor my-8 text-center">
+            Login to Publish Job
+          </h2>
+        )}
+
         <div className="flex justify-between container m-auto p-6">
           <Link
             to="/jobs"
@@ -248,11 +256,11 @@ const JobEntry = ({ handleSubmit, isEditPage = false }) => {
                   onChange={(e) =>
                     handleFormUpdate(e, "company", "contactPhone")
                   }
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  pattern="[0-9]{10}"
                   onInput={(e) => e.target.setCustomValidity("")}
                   onInvalid={(e) =>
                     e.target.setCustomValidity(
-                      "Enter 10 digit phone number!! (555-555-5555)"
+                      "Enter 10 digit phone number!! (9876543210)"
                     )
                   }
                   autoComplete="off"

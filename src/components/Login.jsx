@@ -18,11 +18,7 @@ const Login = () => {
       return;
     }
 
-    const res = await login({ username, password });
-
-    if (res) {
-      navigate("/");
-    }
+    login({ username, password }, navigate);
   };
 
   return (

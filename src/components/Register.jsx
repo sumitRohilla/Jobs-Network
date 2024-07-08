@@ -13,7 +13,7 @@ const Register = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState(false);
 
-  const handleRegister = async (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
 
     if (password !== confirmPass) {
@@ -23,8 +23,7 @@ const Register = () => {
 
     try {
       if (otpSent) {
-        const res = await register({ email, otp });
-        if (res) navigate("/");
+        register({ email, otp }, navigate);
       } else {
         if (/\s/.test(username)) {
           toast.error("Username should not contain spaces!");
@@ -36,7 +35,7 @@ const Register = () => {
           return;
         }
 
-        const res = await sendOTP({ username, password, email });
+        sendOTP({ username, password, email }, setOtpSent);
         setOtpSent(res);
       }
     } catch (err) {

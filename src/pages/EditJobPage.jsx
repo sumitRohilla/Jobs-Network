@@ -43,9 +43,7 @@ const EditJobPage = ({ updateJobSubmit }) => {
     const updatedFormData = { ...formData, fullDesc: updatedFullDesc };
 
     setFormData(updatedFormData);
-    const res = updateJobSubmit(updatedFormData, getCsrfToken);
-
-    if (res) navigate("/jobs");
+    updateJobSubmit(updatedFormData, getCsrfToken, navigate);
   };
 
   return (

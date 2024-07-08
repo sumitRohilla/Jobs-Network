@@ -19,9 +19,7 @@ const JobPage = ({ deleteJob }) => {
     const confirm = window.confirm("Are you sure you want to delete this Job?");
 
     if (!confirm) return;
-    const res = deleteJob(slug, getCsrfToken);
-
-    if (res) navigate("/jobs");
+    deleteJob(slug, getCsrfToken, navigate);
   };
 
   if (isLoggedIn && userId !== job.author) {

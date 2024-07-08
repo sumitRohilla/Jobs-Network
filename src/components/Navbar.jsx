@@ -26,18 +26,12 @@ const Navbar = () => {
     }
   }, [isOpen]);
 
-  const handleLogout = () => {
-    logout();
-    setIsOpen(false);
-    navigate("/");
-  };
-
   return (
     <nav className="bg-mainLightColor sticky top-0 z-10">
       <div className="flex max-w-7xl h-20 items-center justify-between mx-auto text-textColor">
         <div className="flex space-x-5 ml-5 sm:ml-10">
           <img className="h-10 w-auto" src={logo} alt="logo" />
-          <h1 className="my-auto">Job Network</h1>
+          <h1 className="my-auto">Jobs Network</h1>
         </div>
         <div className="mr-8 menu-close lg:hidden">
           <FaBars
@@ -90,7 +84,7 @@ const Navbar = () => {
           </NavLink>
           {isLoggedIn ? (
             <NavLink
-              onClick={handleLogout}
+              onClick={() => logout(navigate, setIsOpen)}
               className="px-2 py-3 rounded-lg md:bg-buttonColor md:text-mainDarkColor hover:bg-gray-700 hover:text-textColor"
             >
               Logout
