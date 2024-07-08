@@ -1,4 +1,4 @@
-# Learning - React Job Network
+# Jobs Network
 
 [![Website Link](https://img.shields.io/badge/-Website%20Link-23272f?style=for-the-badge&logo=React&logoColor=white)](https://sumitrohilla.github.io/React-Job-Network/)
 
