@@ -8,11 +8,8 @@ services:
     staticPublishPath: staticfiles
     envVars:
       - key: SECRET_KEY
-        sync: false
         value: ${SECRET_KEY}
       - key: EMAIL_ID
-        sync: false
         value: ${EMAIL_ID}
       - key: EMAIL_PASSWORD
-        sync: false
         value: ${EMAIL_PASSWORD}
