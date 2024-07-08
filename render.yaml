@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: jobs-network
+    env: python
+    plan: free
+    buildCommand:
+      - pip install -r requirements.txt
+      - python manage.py collectstatic --noinput
+      - python manage.py migrate
+    startCommand: python manage.py runserver 0.0.0.0:$PORT
+    staticPublishPath: staticfiles
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+        value: ${SECRET_KEY}
+      - key: EMAIL_ID
+        sync: false
+        value: ${EMAIL_ID}
+      - key: EMAIL_PASSWORD
+        sync: false
+        value: ${EMAIL_PASSWORD}
+
+cronJobs:
+  - name: keep-alive
+    schedule: "*/14 * * * *"
+    command: "curl -I https://jobs-network.onrender.com"
