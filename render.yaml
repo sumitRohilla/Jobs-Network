@@ -3,12 +3,13 @@ services:
     name: jobs-network
     env: python
     plan: free
+    region: frankfurt
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
     startCommand: cd server && gunicorn server.wsgi:application
     envVars:
       - key: SECRET_KEY
-        value: ${SECRET_KEY}
+        value: django-insecure-!r5s)^%x)7wmo*j+%e1*#ho7y4)^nb9p(7ji@loojjtvm7tdel
       - key: EMAIL_ID
-        value: ${EMAIL_ID}
+        value: test.job.network@gmail.com
       - key: EMAIL_PASSWORD
-        value: ${EMAIL_PASSWORD}
+        value: xguxkrcynvrcyviw
