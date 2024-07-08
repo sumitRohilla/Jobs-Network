@@ -36,7 +36,6 @@ const Register = () => {
         }
 
         sendOTP({ username, password, email }, setOtpSent);
-        setOtpSent(res);
       }
     } catch (err) {
       if (err.name == "AbortError") {

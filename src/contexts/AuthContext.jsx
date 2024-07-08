@@ -96,7 +96,7 @@ const AuthProvider = ({ children }) => {
     } catch (e) {
       toast.error(`${e.message} 🤯` || "Error occured ! 🤯");
       console.error("Error sending otp", e);
-      if (e.message === "OTP already sent") return true;
+      if (e.message === "OTP already sent") setOtpSent(true);
     }
   };
 
