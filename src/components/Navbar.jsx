@@ -84,9 +84,8 @@ const Navbar = () => {
           </NavLink>
           {isLoggedIn ? (
             <NavLink
-              to="/"
               onClick={() => logout(navigate, setIsOpen)}
-              className={navActive}
+              className="px-2 py-3 rounded-lg md:bg-buttonColor md:text-mainDarkColor hover:bg-gray-700 hover:text-textColor"
             >
               Logout
             </NavLink>
@@ -94,7 +93,7 @@ const Navbar = () => {
             <NavLink
               to="/login"
               onClick={() => setIsOpen(false)}
-              className={navActive}
+              className="px-2 py-3 rounded-lg md:bg-buttonColor md:text-mainDarkColor hover:bg-gray-700 hover:text-textColor"
             >
               Login
             </NavLink>
