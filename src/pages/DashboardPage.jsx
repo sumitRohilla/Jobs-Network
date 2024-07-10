@@ -56,7 +56,7 @@ const DashboardPage = () => {
           <>
             <h2 className="text-xl md:text-3xl mb-16 font-bold text-textColor mb-8 text-center">
               {!isLoggedIn
-                ? "Login to View Created Jobs"
+                ? "Login to see Job applicants"
                 : Object.keys(jobData).length === 0
                 ? "No Jobs Created by You"
                 : "Jobs Created by You"}
