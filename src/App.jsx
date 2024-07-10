@@ -66,7 +66,7 @@ const router = createBrowserRouter(
           </AppliedProvider>
         }
       />
-      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/applicants" element={<DashboardPage />} />
     </Route>
   )
 );

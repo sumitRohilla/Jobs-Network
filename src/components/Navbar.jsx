@@ -76,16 +76,16 @@ const Navbar = () => {
             Applied Jobs
           </NavLink>
           <NavLink
-            to="/dashboard"
+            to="/applicants"
             onClick={() => setIsOpen(false)}
             className={navActive}
           >
-            Dashboard
+            Job Applicants
           </NavLink>
           {isLoggedIn ? (
             <NavLink
               onClick={() => logout(navigate, setIsOpen)}
-              className="px-2 py-3 rounded-lg md:bg-buttonColor md:text-mainDarkColor hover:bg-gray-700 hover:text-textColor"
+              className={navActive}
             >
               Logout
             </NavLink>
@@ -93,7 +93,7 @@ const Navbar = () => {
             <NavLink
               to="/login"
               onClick={() => setIsOpen(false)}
-              className="px-2 py-3 rounded-lg md:bg-buttonColor md:text-mainDarkColor hover:bg-gray-700 hover:text-textColor"
+              className={navActive}
             >
               Login
             </NavLink>
