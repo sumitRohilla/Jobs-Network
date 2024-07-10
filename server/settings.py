@@ -116,3 +116,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env("EMAIL_ID")
 EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD")
 DEFAULT_FROM_EMAIL = f'Job Network <{env("EMAIL_ID")}>'
+
+PORT = int(os.environ.get("PORT", 8288))
