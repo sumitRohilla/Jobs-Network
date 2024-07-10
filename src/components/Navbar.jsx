@@ -84,6 +84,7 @@ const Navbar = () => {
           </NavLink>
           {isLoggedIn ? (
             <NavLink
+              to="/"
               onClick={() => logout(navigate, setIsOpen)}
               className={navActive}
             >
