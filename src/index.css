@@ -22,6 +22,13 @@
   color: rgb(246, 247, 249);
 }
 
+/* Adjust margin-top for smaller screens */
+@media (max-width: 480px) {
+  .Toastify__toast-container {
+    margin-top: 5rem !important;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .menu-links {
     width: 60%;
