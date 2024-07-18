@@ -4,7 +4,7 @@
 
 ## Overview
 
-This project is a learning exercise to enhance understanding of React and Django. It uses Vite to set up a React + JavaScript project, with Tailwind CSS for styling and Django for backend data fetching. The UI is inspired by the official React website and is fully responsive.
+This project is a learning exercise to enhance understanding of React and Django. It uses Vite to set up a React + JavaScript project, with Tailwind CSS for styling and Django for backend data fetching and authentication. The UI is inspired by the official React website and is fully responsive.
 
 ## Project Features
 
