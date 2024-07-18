@@ -4,13 +4,12 @@
 
 ## Overview
 
-This project is a learning exercise to enhance understanding of React.js and React Router. It uses Vite to set up a React + JavaScript project, with Tailwind CSS for styling and JSON Server for backend data fetching. The UI is inspired by the official React website and is fully responsive.
+This project is a learning exercise to enhance understanding of React and Django. It uses Vite to set up a React + JavaScript project, with Tailwind CSS for styling and Django for backend data fetching. The UI is inspired by the official React website and is fully responsive.
 
 ## Project Features
 
 - **React for Front-end**: Utilizes React.js for building the front-end.
 - **Tailwind CSS**: Employed for efficient and modern styling.
-- **JSON Server**: Used for simulating a backend by fetching data from a JSON file.
 - **React Router**: Implemented for creating routes to multiple pages.
 - **Responsive Design**: The UI is responsive and mobile-friendly, inspired by the official React website.
 - **Authentication**: Includes features for user authentication, login, and registration with OTP.
