@@ -55,6 +55,10 @@ const Login = () => {
           Don't have account?{" "}
           <u className="text-buttonColor hover:text-textColor">Register</u>
         </Link>
+        <p className="mt-4">Or, use the test credentials below:</p>
+        <p>
+          <strong>Username:</strong> test <strong>Password:</strong> pass@123
+        </p>
       </form>
     </section>
   );
